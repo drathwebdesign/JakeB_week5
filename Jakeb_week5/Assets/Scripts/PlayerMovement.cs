@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class PlayerMovement : MonoBehaviour {
     private PlayerControls playerControls;
     private Rigidbody rb;
-    public float moveSpeed = 5f;
+    public float moveSpeed = 10f;
     public float jumpForce;
     private Vector2 inputVector;
     private Vector2 lookInput;
@@ -104,29 +104,53 @@ public class PlayerMovement : MonoBehaviour {
         }
 
         // Restore movement speed 
-        moveSpeed = 5f;
+        moveSpeed = 10f;
     }
 
     void HandleMovement() {
         inputVector = playerControls.Player.Move.ReadValue<Vector2>();
-        Vector3 moveDir = new Vector3(inputVector.x, 0, inputVector.y).normalized;
-        transform.position += moveDir * moveSpeed * Time.deltaTime;
-        isWalking = moveDir != Vector3.zero;
+
+        // Get the camera's forward and right vectors
+        Vector3 cameraForward = Camera.main.transform.forward;
+        Vector3 cameraRight = Camera.main.transform.right;
+
+        // Keep the vectors flat (ignoring the y-axis)
+        cameraForward.y = 0;
+        cameraRight.y = 0;
+
+        cameraForward.Normalize();
+        cameraRight.Normalize();
+
+        // Calculate the direction relative to the camera
+        Vector3 moveDirection = cameraForward * inputVector.y + cameraRight * inputVector.x;
+
+        // Move the character
+        transform.position += moveDirection * moveSpeed * Time.deltaTime;
+        isWalking = moveDirection != Vector3.zero;
     }
 
     private void HandleRotation() {
         // Get the mouse position in screen space
-        lookInput = playerControls.Player.Look.ReadValue<Vector2>();
+        Vector2 mousePos = playerControls.Player.Look.ReadValue<Vector2>();
+        Ray ray = Camera.main.ScreenPointToRay(mousePos);
+        Plane groundPlane = new Plane(Vector3.up, Vector3.zero);
+        float rayDistance;
 
-        // Convert screen position to world position
-        Vector3 mouseWorldPosition = Camera.main.ScreenToWorldPoint(new Vector3(lookInput.x, lookInput.y, Camera.main.transform.position.y));
+        if (groundPlane.Raycast(ray, out rayDistance)) {
+            Vector3 pointToLook = ray.GetPoint(rayDistance);
 
-        // Calculate the direction to look at
-        Vector3 lookDirection = mouseWorldPosition - transform.position;
-        lookDirection.y = 0f; // Keep rotation in the XZ plane
+            // Calculate the direction to look at
+            Vector3 lookDirection = pointToLook - transform.position;
+            lookDirection.y = 0f; // Keep rotation in the XZ plane
 
-        // Apply rotation to face the mouse
-        transform.rotation = Quaternion.LookRotation(lookDirection);
+            // Prevent rotation if the mouse is too close to the player
+            float distanceToMouse = lookDirection.magnitude;
+            if (distanceToMouse > 2f) { // Adjust this threshold as needed
+                                          // Apply rotation to face the mouse
+                Quaternion newRotation = Quaternion.LookRotation(lookDirection);
+                transform.rotation = Quaternion.Slerp(transform.rotation, newRotation, Time.deltaTime * 10f);
+            }
+        }
     }
 
     void Jump() {
@@ -134,6 +158,7 @@ public class PlayerMovement : MonoBehaviour {
         if (isGrounded) {
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             isJumping = true;
+            Debug.Log("IsJumping called: " + isJumping);
             isGrounded = false;
         } else if (!isGrounded && doubleJumpsUsed < maxDoubleJumps) {
             DoubleJump();
@@ -189,15 +214,17 @@ public class PlayerMovement : MonoBehaviour {
 
     //Attacking
     void Attack() {
-        isAttacking = true;
-        StartCoroutine(AttackCoroutine());
+        if (!isAttacking) {
+            isAttacking = true;
+            StartCoroutine(AttackCoroutine());
+        }
     }
 
     private IEnumerator AttackCoroutine() {
         swordCollider.enabled = true; // Enable the sword collider
-        yield return new WaitForSeconds(1f); // Adjust duration as needed for the attack animation
+        yield return new WaitForSeconds(0.25f); // Adjust duration as needed for the attack animation
+        isAttacking = false;
         swordCollider.enabled = false; // Disable the sword collider after the attack
-        isAttacking = false; // Reset attacking state
     }
 
     public void TakeDamage(int damage) {

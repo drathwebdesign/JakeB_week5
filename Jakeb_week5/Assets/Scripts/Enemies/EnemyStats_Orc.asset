@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97ac664e437a39843ae05fe59c7ff0a6, type: 3}
   m_Name: EnemyStats_Orc
   m_EditorClassIdentifier: 
-  moveSpeed: 4
+  moveSpeed: 8
   maxHealth: 50
   damage: 10
-  attackRange: 3.5
+  attackRange: 2

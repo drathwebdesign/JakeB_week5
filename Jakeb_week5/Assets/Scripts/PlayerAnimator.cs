@@ -9,8 +9,9 @@ public class PlayerAnimator : MonoBehaviour {
     private const string IS_JUMPING = "IsJumping";
     private const string IS_DOUBLE_JUMPING = "IsDoubleJumping";
     private const string IS_BLOCKING = "IsBlocking";
-    private const string IS_ATTACKING = "IsAttacking";
     private const string IS_DIEING = "IsDieing";
+
+    private const string IS_ATTACKING = "IsAttacking";
 
     private bool hasDied = false;  // This flag prevents triggering the death animation multiple times
 
@@ -28,7 +29,9 @@ public class PlayerAnimator : MonoBehaviour {
             // Trigger the die animation only once
             animator.SetTrigger(IS_DIEING);
             hasDied = true;
-        } else if (playerMovement.IsJumping()) {
+        } 
+          else if (playerMovement.IsJumping()) {
+            Debug.Log("is Jumping");
             animator.SetTrigger(IS_JUMPING);
         } else if (playerMovement.IsDoubleJumping()) {
             animator.SetTrigger(IS_DOUBLE_JUMPING);
