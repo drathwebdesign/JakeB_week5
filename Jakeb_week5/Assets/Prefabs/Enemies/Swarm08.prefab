@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2551377228707143979}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: WingRight02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7293499017598457159}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Root
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72,7 +72,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5761038822327404633}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: AntennaLeft02 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -104,7 +104,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3389577080802362672}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Tail02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -136,7 +136,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3518716441865257114}
   - component: {fileID: 2720720653419113335}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Swarm08
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -236,7 +236,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6052669302112653444}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Tail01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -268,7 +268,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 928034727565555268}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: AntennaLeft01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -300,7 +300,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6645241652637164109}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: AntennaLeft03 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -331,7 +331,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1515594348406718032}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: AntennaLeft07
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -364,7 +364,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2784362909235549104}
   - component: {fileID: 3358050422180353604}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -423,7 +423,7 @@ GameObject:
   - component: {fileID: 293757626964829262}
   - component: {fileID: 8535812135442698550}
   - component: {fileID: 4110379876253553895}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Swarm08
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -508,7 +508,7 @@ Rigidbody:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
@@ -530,7 +530,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyStats: {fileID: 11400000, guid: d17dcfaec79eb124abeb4ac9d9fb6446, type: 2}
   hitCollider: {fileID: 3358050422180353604}
-  itemPrefabs: []
+  possibleDrops:
+  - {fileID: 11400000, guid: 009e883ca10e9c949adf36eb203bdd87, type: 2}
+  - {fileID: 11400000, guid: fa211939ce240a645a41c468e7ebb40a, type: 2}
+  itemPrefabs:
+  - {fileID: 8446553778417594022, guid: bd3e1adec1ca6f9439bcb825bccfbb81, type: 3}
+  - {fileID: 7661344421972562074, guid: c0d073015092dfb4da2b22c51057bbdd, type: 3}
 --- !u!114 &4110379876253553895
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -552,7 +557,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6598911805169021235}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: AntennaLeft02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -584,7 +589,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7257656714454919001}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: AntennaLeft03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -615,7 +620,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 350142710562373313}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -648,7 +653,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8843528925503586681}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: WingLeft02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -679,7 +684,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7356033271223236539}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: WingRight01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -711,7 +716,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8674146538867904170}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Spine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -745,7 +750,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1095621116418090296}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: WingLeft01
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -11,6 +11,9 @@ public class Item : ScriptableObject {
     //public int maxValue; 
     public ItemType itemType;
 
+    [Range(0, 100)]
+    public float dropChance; // Drop chance in percentage (0-100)
+
     public enum ItemType {
         Gold,
         Health,

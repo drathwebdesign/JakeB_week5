@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8138010827791085312}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: WingLeft03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4514658412026232490}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Spine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -74,7 +74,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5071459200722140070}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: WingRight01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -106,7 +106,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2841472507083886512}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: WingRight02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -139,7 +139,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7538270221856706317}
   - component: {fileID: 1284984389196440621}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Tail02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -191,7 +191,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8958416128815823119}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -222,7 +222,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 417810508651101241}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Root
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -259,7 +259,7 @@ GameObject:
   - component: {fileID: 2977051666279003759}
   - component: {fileID: 8326517886006666301}
   - component: {fileID: 8634820300955751105}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Swarm09_Bug
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -344,7 +344,7 @@ Rigidbody:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
@@ -366,7 +366,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyStats: {fileID: 11400000, guid: f376e89d5f6c74043828cd31de1872b3, type: 2}
   hitCollider: {fileID: 1284984389196440621}
-  itemPrefabs: []
+  possibleDrops:
+  - {fileID: 11400000, guid: 009e883ca10e9c949adf36eb203bdd87, type: 2}
+  - {fileID: 11400000, guid: fa211939ce240a645a41c468e7ebb40a, type: 2}
+  itemPrefabs:
+  - {fileID: 8446553778417594022, guid: bd3e1adec1ca6f9439bcb825bccfbb81, type: 3}
+  - {fileID: 7661344421972562074, guid: c0d073015092dfb4da2b22c51057bbdd, type: 3}
 --- !u!114 &8634820300955751105
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -389,7 +394,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9152551171594399629}
   - component: {fileID: 3684759066406232158}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Swarm09
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -485,7 +490,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1449704778310170462}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -518,7 +523,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1100289407569164676}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: WingLeft01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -550,7 +555,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 911255961347378131}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: WingRight03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -581,7 +586,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5451833800891013596}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: WingLeft02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -613,7 +618,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5969846586964910476}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Tail01
   m_TagString: Untagged
   m_Icon: {fileID: 0}

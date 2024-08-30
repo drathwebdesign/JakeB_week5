@@ -12,6 +12,7 @@ public class EnemyAI : MonoBehaviour {
     //attacking
     public Collider hitCollider;
 
+    public Item[] possibleDrops;
     public GameObject[] itemPrefabs;
 
     //Animations
@@ -89,15 +90,6 @@ public class EnemyAI : MonoBehaviour {
 
         isDieing = true;
         isAttacking = false;
-        // Check if collider type exists and disable them
-        CapsuleCollider capsuleCollider = GetComponent<CapsuleCollider>();
-        if (capsuleCollider != null) {
-            capsuleCollider.enabled = false;
-        }
-        SphereCollider sphereCollider = GetComponent<SphereCollider>();
-        if (sphereCollider != null) {
-            sphereCollider.enabled = false;
-        }
 
         DropItems();
         Destroy(gameObject, 1f);
@@ -107,9 +99,16 @@ public class EnemyAI : MonoBehaviour {
         float heightOffset = 1.0f; // Adjust this value as needed
         Vector3 spawnPosition = transform.position + new Vector3(0, heightOffset, 0);
 
-        foreach (GameObject itemPrefab in itemPrefabs) {
-            Instantiate(itemPrefab, spawnPosition, itemPrefab.transform.rotation);
+        for (int i = 0; i < possibleDrops.Length; i++) {
+            float randomValue = Random.Range(0f, 100f);
+            if (randomValue <= possibleDrops[i].dropChance) {
+                Instantiate(itemPrefabs[i], spawnPosition, Quaternion.identity);
+            }
         }
+
+        /*        foreach (GameObject itemPrefab in itemPrefabs) {
+                    Instantiate(itemPrefab, spawnPosition, itemPrefab.transform.rotation);
+                }*/
     }
 
 
