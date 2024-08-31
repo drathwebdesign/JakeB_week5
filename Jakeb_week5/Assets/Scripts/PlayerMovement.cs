@@ -73,6 +73,7 @@ public class PlayerMovement : MonoBehaviour {
     }
 
     void Update() {
+        if (isDieing) return;
         GroundCheck();
         Gravity();
         HandleMovement();
@@ -159,6 +160,7 @@ public class PlayerMovement : MonoBehaviour {
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             isJumping = true;
             Debug.Log("IsJumping called: " + isJumping);
+            GetComponent<Animator>().SetTrigger("IsJumping");
             isGrounded = false;
         } else if (!isGrounded && doubleJumpsUsed < maxDoubleJumps) {
             DoubleJump();
@@ -265,7 +267,7 @@ public class PlayerMovement : MonoBehaviour {
 
         isDieing = true;
         playerControls.Player.Disable();
-        //GameManager.instance.PlayerDied();
+        GameManager.instance.PlayerDied();
     }
 
     private IEnumerator InvulnerabilityCoroutine() {
